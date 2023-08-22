@@ -50,7 +50,7 @@ pipeline {
               --function-name lambda \
               --region ap-south-1 \
               --payload {
-                 "subnet_id":"",
+                 "subnet_id":"${SUBNET_ID}",
                  "name":"Yasin",
                  "email":"sutaryasin243@gmail.com"} \
               output.json
@@ -73,4 +73,3 @@ pipeline {
   
 }
 }
-

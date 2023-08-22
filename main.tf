@@ -75,6 +75,11 @@ resource "aws_security_group" "SG" {
   }
 }
 
+data "archive_file" "lambda" {
+  type        = "zip"
+  source_file = "lambda.py"
+  output_path = "lambda.zip"
+}
 
 
 resource "aws_lambda_function" "lambda_handler" {

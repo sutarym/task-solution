@@ -55,13 +55,7 @@ pipeline {
           """
           output = readFile('response.json')
         }
-        script {
-          if (output.contains('"statusCode": 200')) {
-            echo 'Lambda function invocation was successful'
-          } else {
-            echo 'Lambda function invocation failed'
-          }
-        }
+        
       }
       
       

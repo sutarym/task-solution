@@ -79,5 +79,9 @@ resource "aws_lambda_function" "lambda_handler" {
   
 }
 
+output "subnet_id" {
+  value = ws_subnet.PrivateSubnet.id
+}
+
 
 

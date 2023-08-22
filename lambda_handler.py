@@ -2,6 +2,7 @@ import requests
 import os
 import json
 import boto3
+import base64
 
 def lambda_handler():
 
@@ -34,6 +35,11 @@ def lambda_handler():
   response = requests.post('https://ij92qpvpma.execute-api.eu-west-1.amazonaws.com/candidate-email_serverless_lambda_stage/data',
                              headers=request_headers,
                              data=json.dumps(request_body))
+  
+  convertbytes = response.encode("ascii")
+  convertedbytes = base64.b64decode(convertbytes)
+  decodedsample = convertedbytes.decode("ascii")
+  print(f"The string after decoding is: {decodedsample}")
  
   if response.status_code == 200:
     return {

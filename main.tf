@@ -45,7 +45,7 @@ resource "aws_route_table_association" "PrivateToPrivate" {
 resource "aws_route" "RouteInPublicRT_TO_IGW" {
   route_table_id            = aws_route_table.PublicRT.id
   destination_cidr_block    = "0.0.0.0/0"
-# gateway_id                = data.aws_nat_gateway.nat.id
+ gateway_id                = data.aws_nat_gateway.nat.id
   depends_on                = [aws_route_table.PublicRT]
 
 }

@@ -82,11 +82,11 @@ resource "aws_route" "RouteInPrivateRT_TO_NATGW" {
 }
 
 
-resource "aws_lambda_function" "test_lambda" {
-  filename      = "lambda_function_payload.zip"
-  function_name = "lambda_function_name"
+resource "aws_lambda_function" "lambda_handler" {
+  filename      = "lambda_handler.zip"
+  function_name = "lambda_handler"
   role          = data.aws_iam_role.lambda.arn
-  handler       = "index.test"
+  handler       = "lambda_handler"
   runtime       = "pythom3.6"
 
   

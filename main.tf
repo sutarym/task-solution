@@ -1,6 +1,6 @@
 
 
-
+/*
 #public Subnet
 resource "aws_subnet" "PublicSubnet" {
   vpc_id = data.aws_vpc.vpc.id
@@ -10,7 +10,7 @@ resource "aws_subnet" "PublicSubnet" {
     Name = "PublicSubnet"
   }
 }
-
+*/
 #Private Subnet
 resource "aws_subnet" "PrivateSubnet" {
   vpc_id = data.aws_vpc.vpc.id
@@ -20,32 +20,32 @@ resource "aws_subnet" "PrivateSubnet" {
     Name = "PrivateSubnet"
   }
 }
-
+/*
 # public route table 
 resource "aws_route_table" "PublicRT" {
   vpc_id = data.aws_vpc.vpc.id
 
   }
-
+*/
 # Private route table 
 resource "aws_route_table" "PrivateRT" {
   vpc_id = data.aws_vpc.vpc.id
 
   }
-
+/*
 # Rt association Public to Public 
 resource "aws_route_table_association" "PublicToPublic" {
   subnet_id      = aws_subnet.PublicSubnet.id
   route_table_id = aws_route_table.PublicRT.id
 }
-
+*/
 # Rt association Private to Private 
 resource "aws_route_table_association" "PrivateToPrivate" {
   subnet_id      = aws_subnet.PrivateSubnet.id
   route_table_id = aws_route_table.PrivateRT.id
 }
 
-
+/*
 resource "aws_route" "RouteInPublicRT_TO_IGW" {
   route_table_id            = aws_route_table.PublicRT.id
   destination_cidr_block    = "0.0.0.0/0"
@@ -60,7 +60,7 @@ resource "aws_internet_gateway" "gw" {
     Name = "gw"
   }
 }
-
+*/
 resource "aws_route" "RouteInPrivateRT_TO_NATGW" {
   route_table_id            = aws_route_table.PrivateRT.id
   destination_cidr_block    = "0.0.0.0/0"

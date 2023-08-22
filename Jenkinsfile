@@ -30,21 +30,21 @@ pipeline {
         sh 'terraform plan'
       }
     }
-  /*  
+   
     stage('Apply') {
       steps {
         sh 'terraform apply -auto-approve'
       }
     }
- */
-   
+
+    /*
     stage('Destroy') {
       steps {
         sh 'terraform destroy -auto-approve'
       }
     }
        
-   
+    */
 
     stage('Invoke Lambda Function') {
       

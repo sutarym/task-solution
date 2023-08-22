@@ -4,7 +4,7 @@ import json
 import boto3
 import base64
 
-def lambda_handler():
+def lambda_handler(event, context):
 
   request_body_ = {
     'subnet_id': event['subnet_id'],

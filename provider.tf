@@ -1,15 +1,5 @@
 
-terraform {
-  required_providers {
-    aws = {
-      source = "registry.terraform.io/hashicorp/aws"
-      version = "5.13.1"
-    }
-  }
-}
-provider "aws" {
-source = "registry.terraform.io/hashicorp/aws"
-      
+provider "aws" {   
   region = "ap-south-1"
 assume_role {
     role_arn     = data.aws_iam_role.lambda.arn

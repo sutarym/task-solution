@@ -19,6 +19,15 @@ pipeline {
             }
     }
 
+    stage('Set ENV') {
+            steps {
+               
+                environment {
+    SUBNET_ID = sh(returnStdout: true, script: 'terraform output -raw subnet_id')
+  }
+            }
+        }
+
 
     stage('Plan') {
       steps {

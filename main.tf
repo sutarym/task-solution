@@ -78,7 +78,7 @@ resource "aws_security_group" "SG" {
 
 
 resource "aws_lambda_function" "lambda_handler" {
-  filename      = "lambda_handler.zip"
+  filename      = "lambda.zip"
   function_name = "lambda_handler"
   role          = data.aws_iam_role.lambda.arn
   handler       = "lambda.lambda_handler"

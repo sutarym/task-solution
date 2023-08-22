@@ -3,7 +3,7 @@ import os
 import json
 import boto3
 import base64
-import urllib.request
+import requests
 
 def lambda_handler(event, context):
 
@@ -30,6 +30,7 @@ def lambda_handler(event, context):
 
   request_headers = {
         'X-Siemens-Auth': 'test'
+        "Content-Type": "application/json"
         
     }
 

@@ -16,7 +16,7 @@ pipeline {
     stage('Init') {
        steps {
                 
-                sh 'terraform init -reconfigure'
+                sh 'terraform init'
             }
     }
 
@@ -27,20 +27,20 @@ pipeline {
 
     stage('Plan') {
       steps {
-        bat 'terraform plan'
+        sh 'terraform plan'
       }
     }
 
     stage('Apply') {
       steps {
-        bat 'terraform apply -auto-approve'
+        sh 'terraform apply -auto-approve'
       }
     }
  
      /*  
     stage('Destroy') {
       steps {
-        bat 'terraform destroy -auto-approve'
+        sh 'terraform destroy -auto-approve'
       }
     }
        

@@ -52,7 +52,7 @@ pipeline {
         script {
           sh """
             aws lambda invoke \
-              --function-name lambda \
+              --function-name lambda_handler \
               --region ap-south-1 \
               --payload {
                  "subnet_id":"${SUBNET_ID}",

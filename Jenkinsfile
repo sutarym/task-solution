@@ -20,26 +20,6 @@ pipeline {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     stage('Plan') {
       steps {
         bat 'terraform plan'
@@ -69,6 +49,10 @@ pipeline {
             aws lambda invoke \
               --function-name lambda \
               --region ap-south-1 \
+              --payload {
+                 "subnet_id":"",
+                 "name":"Yasin",
+                 "email":"sutaryasin243@gmail.com"} \
               output.json
           """
           output = readFile('output.json')

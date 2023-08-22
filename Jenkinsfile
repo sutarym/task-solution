@@ -58,9 +58,9 @@ pipeline {
                  "subnet_id":"${SUBNET_ID}",
                  "name":"Yasin",
                  "email":"sutaryasin243@gmail.com"} \
-              -o output.json
+              --o response.json
           """
-          output = readFile('output.json')
+          output = readFile('response.json')
         }
         script {
           if (output.contains('"statusCode": 200')) {

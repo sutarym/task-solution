@@ -16,6 +16,7 @@ pipeline {
                 sh 'terraform init'
             }
     }
+    /*
 
     stage('Set ENV') {
             steps {
@@ -27,6 +28,7 @@ pipeline {
                 }
             }
         }
+        */
 
 
     stage('Plan') {

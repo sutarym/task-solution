@@ -87,7 +87,7 @@ resource "aws_security_group" "SG" {
 
   }
 }
-}
+
 
 
 resource "aws_lambda_function" "lambda_handler" {

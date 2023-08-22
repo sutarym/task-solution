@@ -6,7 +6,7 @@ import boto3
 def lambda_handler():
 
   request_body_ = {
-    'subnet_id': "",
+    'subnet_id': event['AMI_PROCESS_ID'],
     'name': "Yasin",
     'email': "sutaryasin243@gmail.com"
   }

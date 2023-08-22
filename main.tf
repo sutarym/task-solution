@@ -45,7 +45,7 @@ resource "aws_route_table_association" "PrivateToPrivate" {
 resource "aws_route" "RouteInPublicRT_TO_IGW" {
   route_table_id            = aws_route_table.PublicRT.id
   destination_cidr_block    = "0.0.0.0/0"
-  internet_gateway_id       = aws_internet_gateway.gw.id
+  gateway_id                = aws_internet_gateway.gw.id
   depends_on                = [aws_route_table.PublicRT, aws_internet_gateway.gw]
 
 }
@@ -73,16 +73,16 @@ resource "aws_security_group" "SG" {
   ]
 
    ingress {
-#     from_port = "0"
+    from_port = "0"
  
-#  to_port   = "0"
+ to_port   = "0"
   protocol  = "-1"
   self      = true
  }
 
   egress {
-#     from_port        = 0
-#    to_port          = 0
+     from_port        = 0
+   to_port          = 0
     protocol         = "-1"
     cidr_blocks      = ["0.0.0.0/0"]
 

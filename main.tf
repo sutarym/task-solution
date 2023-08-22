@@ -4,7 +4,7 @@
 #public Subnet
 resource "aws_subnet" "PublicSubnet" {
   vpc_id = data.aws_vpc.vpc.id
-  cidr_block = "10.0.1.0/24"
+  cidr_block = "10.0.2.0/24"
 
   tags = {
     Name = "PublicSubnet"
@@ -74,7 +74,7 @@ resource "aws_lambda_function" "lambda_handler" {
   function_name = "lambda_handler"
   role          = data.aws_iam_role.lambda.arn
   handler       = "lambda_handler"
-  runtime       = "python3.6"
+  runtime       = "python3.9"
 
   
 }

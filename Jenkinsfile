@@ -51,7 +51,7 @@ pipeline {
       steps {
         script {
           sh """
-            aws lambda invoke --function-name lambda_handler --region ap-south-1 --payload {"subnet_id":"${SUBNET_ID}","name":"Yasin","email":"sutaryasin243@gmail.com"}  response.json
+            aws lambda invoke --function-name lambda_handler --region ap-south-1 --payload {"subnet_id":"${SUBNET_ID}"}  response.json
           """
           output = readFile('response.json')
         }

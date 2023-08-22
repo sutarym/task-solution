@@ -3,7 +3,7 @@ import os
 import json
 import boto3
 
-def test_lambda():
+def lambda_handler():
 
   request_body_ = {
     'subnet_id': "",

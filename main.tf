@@ -81,7 +81,7 @@ resource "aws_lambda_function" "lambda_handler" {
   filename      = "lambda_handler.zip"
   function_name = "lambda_handler"
   role          = data.aws_iam_role.lambda.arn
-  handler       = "lambda_handler.lambda_handler"
+  handler       = "lambda.lambda_handler"
   runtime       = "python3.9"
 
   

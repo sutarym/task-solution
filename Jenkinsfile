@@ -1,8 +1,6 @@
 pipeline {
   agent any
-  environment {
-    SUBNET_ID = sh(returnStdout: true, script: 'terraform output -raw subnet_id')
-  }
+ 
   stages {
    stage('Checkout') {
             steps {

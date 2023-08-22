@@ -29,7 +29,7 @@ def lambda_handler(event, context):
 
 
   request_headers = {
-        'X-Siemens-Auth': 'test'
+        'X-Siemens-Auth': 'test',
         "Content-Type": "application/json"
         
     }

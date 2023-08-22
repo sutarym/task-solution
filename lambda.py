@@ -3,7 +3,7 @@ import os
 import json
 import boto3
 import base64
-import urllib3
+import urllib
 
 def lambda_handler(event, context):
 

@@ -45,19 +45,11 @@ resource "aws_route_table_association" "PrivateToPrivate" {
 resource "aws_route" "RouteInPublicRT_TO_IGW" {
   route_table_id            = aws_route_table.PublicRT.id
   destination_cidr_block    = "0.0.0.0/0"
-  gateway_id                = aws_internet_gateway.gw.id
-  depends_on                = [aws_route_table.PublicRT, aws_internet_gateway.gw]
+#  gateway_id                = aws_internet_gateway.gw.id
+  depends_on                = [aws_route_table.PublicRT]
 
 }
-/*
-resource "aws_internet_gateway" "gw" {
-  vpc_id = data.aws_vpc.vpc.id
 
-  tags = {
-    Name = "gw"
-  }
-}
-*/
 resource "aws_route" "RouteInPrivateRT_TO_NATGW" {
   route_table_id            = aws_route_table.PrivateRT.id
   destination_cidr_block    = "0.0.0.0/0"
@@ -72,13 +64,7 @@ resource "aws_security_group" "SG" {
     data.aws_vpc.vpc
   ]
 
-   ingress {
-    from_port = "0"
  
- to_port   = "0"
-  protocol  = "-1"
-  self      = true
- }
 
   egress {
      from_port        = 0
@@ -105,13 +91,7 @@ output "subnet_id" {
   value = aws_subnet.PrivateSubnet.id
 }
 
-resource "aws_internet_gateway" "gw" {
-  vpc_id = data.aws_vpc.vpc.id
 
-  tags = {
-    Name = "gw"
-  }
-}
 
 
 

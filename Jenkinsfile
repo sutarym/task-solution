@@ -58,7 +58,7 @@ pipeline {
                  "subnet_id":"${SUBNET_ID}",
                  "name":"Yasin",
                  "email":"sutaryasin243@gmail.com"} \
-              output.json
+              -o output.json
           """
           output = readFile('output.json')
         }

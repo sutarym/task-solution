@@ -85,6 +85,7 @@ resource "aws_security_group" "SG" {
     protocol  = "-1"
     self      = "true"
   }
+}
 
 
 resource "aws_lambda_function" "lambda_handler" {

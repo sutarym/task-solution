@@ -48,7 +48,7 @@ resource "aws_route" "RouteInPublicRT_TO_IGW" {
   gateway_id                = aws_internet_gateway.gw.id
   depends_on                = [aws_route_table.PublicRT]
 }
-
+/*
 resource "aws_internet_gateway" "gw" {
   vpc_id = data.aws_vpc.vpc.id
 
@@ -56,7 +56,7 @@ resource "aws_internet_gateway" "gw" {
     Name = "gw"
   }
 }
-
+*/
 resource "aws_route" "RouteInPrivateRT_TO_NATGW" {
   route_table_id            = aws_route_table.PrivateRT.id
   destination_cidr_block    = "0.0.0.0/0"

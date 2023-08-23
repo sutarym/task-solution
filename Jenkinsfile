@@ -13,16 +13,16 @@ pipeline {
         }
 stage('Configure AWS') {
             steps {
-                sh 'aws configure set aws_access_key_id AKIARN47KMZ7CBDA7FOU'
-                sh 'aws configure set aws_secret_access_key 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'
-                sh 'aws configure set default.region ap-south-1'
+                bat  'aws configure set aws_access_key_id AKIARN47KMZ7CBDA7FOU'
+                bat  'aws configure set aws_secret_access_key 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'
+                bat  'aws configure set default.region ap-south-1'
             }
         }
     
     stage('Init') {
        steps {
                 
-                sh 'terraform init'
+                bat  'terraform init'
             }
     }
 
@@ -33,20 +33,20 @@ stage('Configure AWS') {
 
     stage('Plan') {
       steps {
-        sh 'terraform plan'
+        bat  'terraform plan'
       }
     }
    
     stage('Apply') {
       steps {
-        sh 'terraform apply -auto-approve'
+        bat  'terraform apply -auto-approve'
       }
     }
 
     /*
     stage('Destroy') {
       steps {
-        sh 'terraform destroy -auto-approve'
+        bat  'terraform destroy -auto-approve'
       }
     }
        
@@ -56,7 +56,7 @@ stage('Configure AWS') {
       
       steps {
         script {
-          sh """
+          bat  """
             aws lambda invoke --function-name lambda_handler --region ap-south-1 --cli-binary-format raw-in-base64-out  --payload  '{ "subnet_id":"${SUBNET_ID}" }' response.json  --log-type Tail
           """
           output = readFile('response.json')

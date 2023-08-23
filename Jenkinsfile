@@ -11,7 +11,14 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/sutarym/Task.git'
             }
         }
-
+stage('Configure AWS') {
+            steps {
+                sh 'aws configure set aws_access_key_id AKIARN47KMZ7CBDA7FOU'
+                sh 'aws configure set aws_secret_access_key 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
+'
+                sh 'aws configure set default.region ap-south-1'
+            }
+        }
     
     stage('Init') {
        steps {
